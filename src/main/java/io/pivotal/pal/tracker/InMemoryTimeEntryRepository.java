@@ -7,11 +7,11 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     private HashMap<Long, TimeEntry> repository = new HashMap<>();
 
     public TimeEntry create(TimeEntry timeEntry) {
-        if (repository.containsKey(timeEntry.getId())) {
-            long largestId = repository.keySet().stream().max(Long::compare).get();
+        if (timeEntry.getId() == 1L) {
+            long largestId = repository.size() > 0 ? repository.keySet().stream().max(Long::compare).get() : 0;
             timeEntry.setId(++largestId);
+            repository.put(timeEntry.getId(), timeEntry);
         }
-        repository.put(timeEntry.getId(), timeEntry);
 
         return timeEntry;
     }
