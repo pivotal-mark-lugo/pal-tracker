@@ -31,14 +31,14 @@ bootRun.environment([
         "WELCOME_MESSAGE": "Hello from review environment",
         "SPRING_DATASOURCE_URL": developmentDbUrl,
         "MANAGEMENT_SECURITY_ENABLED": false,
-        HTTPS_DISABLED: true
+        "HTTPS_DISABLED": true
 ])
 
 test.environment([
         "WELCOME_MESSAGE": "Hello from test",
         "SPRING_DATASOURCE_URL": testDbUrl,
         "MANAGEMENT_SECURITY_ENABLED": false,
-        HTTPS_DISABLED: true
+        "HTTPS_DISABLED": true
 ])
 
 flyway {
