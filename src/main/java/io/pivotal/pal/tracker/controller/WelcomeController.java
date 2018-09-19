@@ -1,5 +1,6 @@
-package io.pivotal.pal.tracker;
+package io.pivotal.pal.tracker.controller;
 
+import io.pivotal.pal.tracker.config.WelcomeConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
