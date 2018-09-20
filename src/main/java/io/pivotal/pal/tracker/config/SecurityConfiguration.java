@@ -9,15 +9,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private Boolean disableHttps;
+    private final EnvironmentConfiguration envConfig;
 
-    public SecurityConfiguration(@Value("${https.disabled}") Boolean disableHttps) {
-        this.disableHttps = disableHttps;
+    public SecurityConfiguration(EnvironmentConfiguration envConfig) {
+        this.envConfig = envConfig;
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        if (System.getenv("HTTPS_DISABLED").equals("false")) {
+        if (!envConfig.disableHttps) {
             http.requiresChannel().anyRequest().requiresSecure();
         }
 
