@@ -19,6 +19,7 @@ public class PalTrackerApplication {
         SpringApplication.run(PalTrackerApplication.class, args);
     }
 
+    //todo update this to use JPA repoisitory
     @Bean
     public TimeEntryRepository timeEntryRepository() {
         return new InMemoryTimeEntryRepository();
